@@ -68,6 +68,14 @@ h2 {
   color: #00285f;
 }
 
+h4 {
+  color: #00285f;
+}
+
+h6 {
+  color: #00285f;
+}
+
 nav ul {
   display: flex;
   flex-direction: row;
@@ -430,7 +438,7 @@ footer .main {
 .footer-rental,
 .footer-contact,
 .footer-social {
-  color: white;
+  color: #00285f;
   height: 100%;
   min-height: 100px;
 }

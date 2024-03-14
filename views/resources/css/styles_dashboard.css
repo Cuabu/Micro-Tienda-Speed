@@ -1,65 +1,62 @@
-/* Estilos para el menú de la barra lateral */
-.sidebar {
-  background-color: #f8f9fa;
-}
 
-.sidebar .circle-logo {
-  width: 100px;
-}
+        /* Estilos adicionales */
+        .sidebar {
+            background-color: #f8f9fa;
+        }
 
-.sidebar .menu-item {
-  list-style: none;
-}
+        .sidebar .circle-logo {
+            width: 100px;
+        }
 
-.sidebar .menu-item a {
-  display: block;
-  padding: 0.5rem 1rem;
-  color: #000;
-}
+        .sidebar .menu-item {
+            list-style: none;
+        }
 
-.sidebar .menu-item a:hover {
-  background-color: #e9ecef;
-}
+        .sidebar .menu-item a {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: #000;
+        }
 
-/* Estilos para la barra superior */
-.topbar {
-  background-color: #fff;
-}
+        .sidebar .menu-item a:hover {
+            background-color: #e9ecef;
+        }
 
-.topbar .avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-}
+        .topbar {
+            background-color: #fff;
+        }
 
-/* Estilos para el perfil */
-.profile-pictures {
-  position: relative;
-}
+        .topbar .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
 
-.profile-pictures .profile-img {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  border: 2px solid #fff;
-}
+        .profile-pictures {
+            position: relative;
+        }
 
-/* Estilos para los botones de visibilidad de contraseña */
-.input-group i {
-  cursor: pointer;
-}
+        .profile-pictures .profile-img {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+        }
 
-/* Estilos para el botón de actualizar */
-.forms .btn-success {
-  background-color: #28a745;
-  border-color: #28a745;
-}
+        .input-group i {
+            cursor: pointer;
+        }
 
-.forms .btn-success:hover {
-  background-color: #218838;
-  border-color: #1e7e34;
-}
+        .forms .btn-success {
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+
+        .forms .btn-success:hover {
+            background-color: #218838;
+            border-color: #1e7e34;
+        }

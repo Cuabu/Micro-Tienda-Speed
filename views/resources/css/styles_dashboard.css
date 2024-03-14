@@ -1,62 +1,84 @@
+/* Estilos adicionales */
+.sidebar {
+  background-color: #f78b00;
+}
 
-        /* Estilos adicionales */
-        .sidebar {
-            background-color: #f8f9fa;
-        }
+.sidebar .circle-logo {
+  width: 100px;
+}
 
-        .sidebar .circle-logo {
-            width: 100px;
-        }
+.sidebar .menu-item {
+  list-style: none;
+}
 
-        .sidebar .menu-item {
-            list-style: none;
-        }
+.sidebar .menu-item a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #000;
+}
 
-        .sidebar .menu-item a {
-            display: block;
-            padding: 0.5rem 1rem;
-            color: #000;
-        }
+.sidebar .menu-item a:hover {
+  background-color: #e9ecef;
+}
 
-        .sidebar .menu-item a:hover {
-            background-color: #e9ecef;
-        }
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+  background-image: url('../imagenes/fondo_frutas.png'); /* Ruta a tu imagen de fondo */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 
-        .topbar {
-            background-color: #fff;
-        }
+/* Cambio de color para los botones dentro de .menu-item */
+.sidebar .menu-item a.btn {
+  background-color: #f78b00;
+  border-color: #00285f;
+  color: #fff;
+}
 
-        .topbar .avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-        }
+.sidebar .menu-item a.btn:hover {
+  background-color: #00285f;
+  border-color: #00285f;
+  color: #e9ecef;
+}
 
-        .profile-pictures {
-            position: relative;
-        }
+.topbar {
+  background-color: #00285f;
+}
 
-        .profile-pictures .profile-img {
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            border: 2px solid #fff;
-        }
+.topbar .avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
 
-        .input-group i {
-            cursor: pointer;
-        }
+.profile-pictures {
+  position: relative;
+}
 
-        .forms .btn-success {
-            background-color: #28a745;
-            border-color: #28a745;
-        }
+.profile-pictures .profile-img {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid #e28813;
+}
 
-        .forms .btn-success:hover {
-            background-color: #218838;
-            border-color: #1e7e34;
-        }
+.input-group i {
+  cursor: pointer;
+}
+
+.forms .btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.forms .btn-success:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
+}

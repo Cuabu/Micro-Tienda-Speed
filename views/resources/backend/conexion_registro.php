@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["fullname"], $_POST["em
             $_SESSION['email'] = $email;
 
             // Redireccionar a la página de perfil después de un registro exitoso
-            header("Location: http://localhost/Proyecto-Sena/views/resources/paginas/login.html");
+            header("Location: http://localhost/Micro-Tienda-Speed/views/resources/paginas/login.html");
             exit; // Detener la ejecución del script PHP después de la redirección
         } else {
             // Mostrar mensaje de error si hay un error en la inserción

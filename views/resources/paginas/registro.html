@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+</head>
+<body>
+    <div class="container">
+        <div class="container-form register">
+            <div class="information">
+                <div class="info-childs">
+                    <h2>Bienvenido</h2>
+                    <p>¡Bienvenido a nuestra comunidad! Regístrate para acceder a todas las funciones y contenido exclusivo. Completa los campos a continuación y comienza a disfrutar de nuestra plataforma.</p>
+                    <a href="./login.html" class="btn btn-primary">Entrar</a>
+                </div>
+            </div>
+            <div class="form-information">
+                <div class="form-information-childs">
+                    <h2>Crea una Cuenta</h2>
+                    <div class="icons">
+                        <i class='bx bxl-google'></i>
+                        <i class='bx bxl-facebook'></i>
+                        <i class='bx bxl-github'></i>
+                    </div>
+                    <p>Regístrate Con Tu Nombre y Correo</p>
+                    <form class="form" action="../backend/conexion_registro.php" method="POST">
+                        <div class="form-group">
+                            <label for="fullname"><i class='bx bx-user'></i></label>
+                            <input type="text" id="fullname" name="fullname" placeholder="Nombre Completo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email"><i class='bx bx-envelope'></i></label>
+                            <input type="email" id="email" name="email" placeholder="Correo Electrónico" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password"><i class='bx bx-lock-alt'></i></label>
+                            <input type="password" id="password" name="password" placeholder="Contraseña" required>
+                        </div>
+                        <input type="submit" value="Registrarse" class="btn-submit btn btn-primary">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

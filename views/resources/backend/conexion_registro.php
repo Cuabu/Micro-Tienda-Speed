@@ -34,8 +34,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["fullname"], $_POST["em
         $stmt->bind_param("sss", $fullname, $email, $password);
 
         if ($stmt->execute()) {
-            // Mostrar mensaje de éxito
-            echo "<p>Usuario registrado exitosamente.</p>";
+            // Redirigir al usuario a otra página después de registrar exitosamente
+            header("Location: dashboard.html?fullname=" . urlencode($fullname) . "&email=" . urlencode($email));
+            exit();
         } else {
             // Mostrar mensaje de error si hay un error en la inserción
             echo "<p>Error al registrar el usuario.</p>";

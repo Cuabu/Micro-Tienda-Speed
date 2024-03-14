@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($result->num_rows > 0) {
         // Inicio de sesión exitoso, redireccionar al panel de control
-        header("Location: dashboard.php");
+        header("Location: dashboard.html");
         exit();
     } else {
         // Credenciales incorrectas, mostrar mensaje de error

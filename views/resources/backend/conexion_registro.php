@@ -1,11 +1,11 @@
 <?php
-// Verificar si se recibieron datos del formulario de manera segura
+// Verificar si se recibieron datos del formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["fullname"], $_POST["email"], $_POST["password"])) {
-    // Evitar la inyección de SQL utilizando consultas preparadas
+    // Establecer la conexión a la base de datos
     $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "speed_store";
+    $username = "root"; // Reemplaza "tu_usuario" por tu nombre de usuario de MySQL
+    $password = ""; // Reemplaza "tu_contraseña" por tu contraseña de MySQL
+    $dbname = "speed_store"; // Reemplaza "tu_base_de_datos" por el nombre de tu base de datos
     $conn = new mysqli($servername, $username, $password, $dbname);
 
     if ($conn->connect_error) {
@@ -26,26 +26,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["fullname"], $_POST["em
 
     if ($result->num_rows > 0) {
         // El usuario ya existe, mostrar mensaje de error
-        echo "<div style='text-align: center;'><div class='error-message' style='background-color: #f8d7da; color: #721c24; padding: 10px; border-radius: 5px; margin-bottom: 15px; display: inline-block;'>El usuario ya está registrado.</div></div>";
+        echo "<p>El usuario ya está registrado.</p>";
     } else {
-        // El usuario no existe, insertar datos en la base de datos de manera segura
+        // El usuario no existe, insertar datos en la base de datos
         $sql = "INSERT INTO usuarios (fullname, email, password) VALUES (?, ?, ?)";
         $stmt = $conn->prepare($sql);
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-        $stmt->bind_param("sss", $fullname, $email, $hashed_password);
+        $stmt->bind_param("sss", $fullname, $email, $password);
 
         if ($stmt->execute()) {
-            // Iniciar sesión y almacenar los datos del usuario en la sesión
-            session_start();
-            $_SESSION['fullname'] = $fullname;
-            $_SESSION['email'] = $email;
-
-            // Redireccionar a la página de perfil después de un registro exitoso
-            header("Location: http://localhost/Micro-Tienda-Speed/views/resources/paginas/login.html");
-            exit; // Detener la ejecución del script PHP después de la redirección
+            // Mostrar mensaje de éxito
+            echo "<p>Usuario registrado exitosamente.</p>";
         } else {
             // Mostrar mensaje de error si hay un error en la inserción
-            echo "<div style='text-align: center;'><div class='error-message' style='background-color: #f8d7da; color: #721c24; padding: 10px; border-radius: 5px; margin-bottom: 15px; display: inline-block;'>Error al registrar el usuario.</div></div>";
+            echo "<p>Error al registrar el usuario.</p>";
         }
     }
 
@@ -54,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["fullname"], $_POST["em
     $conn->close();
 } else {
     // Mostrar mensaje de error si no se recibieron datos del formulario
-    echo "<div style='text-align: center;'><div class='error-message' style='background-color: #f8d7da; color: #721c24; padding: 10px; border-radius: 5px; margin-bottom: 15px; display: inline-block;'>Error: No se recibieron datos del formulario.</div></div>";
+    echo "<p>No se recibieron datos del formulario.</p>";
 }
 
 // Función para limpiar los datos del formulario

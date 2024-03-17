@@ -1,4 +1,5 @@
 <?php
+session_start();
 // Verificar si se recibieron datos del formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["fullname"], $_POST["email"], $_POST["password"])) {
     // Establecer la conexión a la base de datos

@@ -1,50 +1,27 @@
 <?php
-// Verificar si se recibieron datos del formulario
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login_email"], $_POST["login_password"])) {
-    // Establecer la conexión a la base de datos
-    $servername = "localhost";
-    $username = "root"; // Reemplaza "tu_usuario" por tu nombre de usuario de MySQL
-    $password = ""; // Reemplaza "tu_contraseña" por tu contraseña de MySQL
-    $dbname = "speed_store"; // Reemplaza "tu_base_de_datos" por el nombre de tu base de datos
-    $conn = new mysqli($servername, $username, $password, $dbname);
+session_start(); // Iniciar la sesión
 
-    if ($conn->connect_error) {
-        die("Conexión fallida: " . $conn->connect_error);
-    }
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Recibir los datos del formulario
+    $email = $_POST['login_email'];
+    $password = $_POST['login_password'];
 
-    // Obtener y limpiar los datos del formulario
-    $login_email = clean_input($_POST["login_email"]);
-    $login_password = clean_input($_POST["login_password"]);
-
-    // Verificar las credenciales en la base de datos
-    $sql = "SELECT * FROM usuarios WHERE email=? AND password=?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ss", $login_email, $login_password);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($result->num_rows > 0) {
-        // Inicio de sesión exitoso, redireccionar al panel de control
-        header("Location: dashboard.html?email=" . urlencode($login_email));
+    // Aquí deberías realizar la validación del usuario en tu base de datos
+    // Por ejemplo, verificar si el usuario y contraseña son correctos
+    // Si la validación es exitosa, puedes almacenar información del usuario en la sesión
+    // Por ejemplo:
+    if ($email == 'usuario@example.com' && $password == 'contraseña') {
+        $_SESSION['usuario'] = $email; // Almacenar el email del usuario en la sesión
+        header('Location: dashboard.html'); // Redireccionar a la página principal
         exit();
     } else {
-        // Credenciales incorrectas, mostrar mensaje de error
-        echo "<p>Correo electrónico o contraseña incorrectos.</p>";
+        // Si la validación falla, mostrar un mensaje de error
+        echo '<script>alert("Correo electrónico o contraseña incorrectos. Intenta de nuevo."); window.location.href = "tu_pagina_de_login.php";</script>';
+        exit();
     }
-
-    // Cerrar la conexión
-    $stmt->close();
-    $conn->close();
 } else {
-    // Mostrar mensaje de error si no se recibieron datos del formulario
-    echo "<p>No se recibieron datos del formulario.</p>";
-}
-
-// Función para limpiar los datos del formulario
-function clean_input($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
+    // Si se intenta acceder directamente a este archivo sin enviar el formulario, redirigir al formulario de inicio de sesión
+    header('Location: tu_pagina_de_login.php');
+    exit();
 }
 ?>

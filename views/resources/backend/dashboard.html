@@ -17,7 +17,6 @@
 </head>
 
 <body>
- 
     <div class="wrapper min-h-screen">
         <div class="container-fluid p-0">
             <div class="row">
@@ -31,148 +30,137 @@
                             <hr class="mb-2">
                             <ul class="list-unstyled m-0 mt-3 p-0 menu show">                                
                                 <li class="my-4 menu-item">
-                                        <a href="consulta_mysql.php" class="btn btn-primary btn-sm ms-auto">Consultar Productos</a>
-                                        <a href="agregar_producto.php" class="btn btn-primary btn-sm ms-auto">Agregar Producto</a>
-                                        <a href="modificar_producto.php" class="btn btn-primary btn-sm ms-auto">Modificar Producto</a>
-                                        <a href="eliminar_producto.php" class="btn btn-primary btn-sm ms-auto">Eliminar Producto</a>
-                                    </a>
+                                    <a href="consulta_mysql.php" class="btn btn-primary btn-sm ms-auto">Consultar Productos</a>
+                                    <a href="agregar_producto.php" class="btn btn-primary btn-sm ms-auto">Agregar Producto</a>
+                                    <a href="modificar_producto.php" class="btn btn-primary btn-sm ms-auto">Modificar Producto</a>
+                                    <a href="eliminar_producto.php" class="btn btn-primary btn-sm ms-auto">Eliminar Producto</a>
                                 </li>
                             </ul>                                
                         </div>
                     </div>
                 </div>
 
-
                 <div class="col-lg-9 col-md-8 p-0">
                     <div class="topbar shadow border-bottom">
                         <div class="d-flex justify-content-between align-items-center px-4">
                             <div class="d-flex justify-content-end align-items-center p-2 px-4 w-100">
-                                <div class="position-relative">
-                                    <div class="text-end">
-                                        
-                                    </div>
-                                    <div class="notification-dropdown">
-                                        <div class="card">
-                                            <div class="card-header bg-success">
-                                                <p class="text-white fw-semibold text-center mb-0">Notificaciones</p>
-                                            </div>
-                                            <div class="card-body">
-                                                <p class="mb-0 fw-semibold">Devolución por cobrar</p>
-                                                <p class="mb-0 fs-14 text-muted">Viernes, 13 de enero de 2023 10:50:20 AM</p>
-                                            </div>
-                                            <div class="card-footer bg-white">
-                                                <div class="text-center">
-                                                    <a href="" class="text-success text-decoration-none fw-semibold">Ver todas</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                               
+                                <!-- Botón de cerrar sesión -->
+                                <a href="../backend/log_out.php" class="btn btn-danger">Cerrar Sesión</a>
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="p-4">
-                        <p class="fw-semibold warning lead">Perfil</p>
-                        <hr>
-                        <div class="profile-pictures position-relative">
-                            <img src="img/baner.jpg" class="img-fluid w-100" alt="">
-                            <img src="img/avatar.png" class="img-fluid profile-img" alt="">
-                        </div>
-
-                        <div class="forms mt-5 pt-5">
-                            <div class="row mt-3">
-                                <div class="col-md-6 p-3">
-                                    <div class="card rounded-0 border-dark h-100">
-                                        <div class="card-body">
-                                            <p class="lead fw-bold">Información de la cuenta</p>
-                                            <hr>
-                                            <form>
-                                                <div class="inp-group mb-3">
-                                                    <label for="fullname" class="form-label">Nombre</label>
-                                                    <input type="text" class="form-control border-dark" placeholder="Nombres" id="fullname" name="fullname" value="">
-                                                </div>
-
-                                                <div class="inp-group mb-3">
-                                                    <label for="email" class="form-label">Correo electrónico</label>
-                                                    <input type="email" class="form-control border-dark" placeholder="Ejemplo@email.com" id="email" name="email" value="">
-                                                </div>
-                                                
-                                                <div class="inp-group mb-3">
-                                                    <label for="password" class="form-label">Contraseña</label>
-                                                    <div class="input-group align-items-center border rounded border-dark px-3 mt-2">
-                                                        <input type="password" placeholder="*************" class="form-control border-0" name="password" id="password">
-                                                        <i class="fa fa-eye-slash"></i>
-                                                    </div>
-                                                </div>
-
-                                                <div class="inp-group mb-3">
-                                                    <label for="new_password" class="form-label">Contraseña nueva</label>
-                                                    <div class="input-group align-items-center border rounded border-dark px-3 mt-2">
-                                                        <input type="password" placeholder="*************" class="form-control border-0" name="new_password" id="new_password">
-                                                        <i class="fa fa-eye-slash"></i>
-                                                    </div>
-                                                </div>
-
-                                                <div class="text-end">
-                                                    <button type="submit" class="btn btn-success px-4">Actualizar</button>
-                                                </div>
-
-                                            </form>
+                        <div class="topbar shadow border-bottom">
+                            <div class="d-flex justify-content-between align-items-center px-4">
+                                <div class="d-flex justify-content-end align-items-center p-2 px-4 w-100">
+                                    <div class="position-relative">
+                                        <div class="text-end"> <!-- Contenido de notificaciones -->
                                         </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 p-3">
-                                    <div class="card rounded-0 border-dark h-100">
-                                        <div class="card-body">
-                                            <p class="lead fw-bold">Información de la cuenta</p>
-                                            <hr>
-                                            <form>
-                                                <div class="inp-group mb-3">
-                                                    <label for="fullname" class="form-label">Nombre</label>
-                                                    <input type="text" class="form-control border-dark" placeholder="Nombres" id="fullname" name="fullname" value="">
+                                        <div class="notification-dropdown">
+                                            <div class="card">
+                                                <div class="card-header bg-success">
+                                                    <p class="text-white fw-semibold text-center mb-0">Notificaciones</p>
                                                 </div>
-
-                                                <div class="inp-group mb-3">
-                                                    <label for="email" class="form-label">Correo electrónico</label>
-                                                    <input type="email" class="form-control border-dark" placeholder="Ejemplo@email.com" id="email" name="email" value="">
+                                                <div class="card-body">
+                                                    <p class="mb-0 fw-semibold">Devolución por cobrar</p>
+                                                    <p class="mb-0 fs-14 text-muted">Viernes, 13 de enero de 2023 10:50:20 AM</p>
                                                 </div>
-
-                                                <div class="inp-group mb-3">
-                                                    <label for="password" class="form-label">Contraseña</label>
-                                                    <div class="input-group align-items-center border rounded border-dark px-3 mt-2">
-                                                        <input type="password" placeholder="*************" class="form-control border-0" name="password" id="password">
-                                                        <i class="fa fa-eye-slash"></i>
+                                                <div class="card-footer bg-white">
+                                                    <div class="text-center">
+                                                        <a href="" class="text-success text-decoration-none fw-semibold">Ver todas</a>
                                                     </div>
                                                 </div>
-                                                
-                                                <div class="inp-group mb-3">
-                                                    <label for="new_password" class="form-label">Contraseña nueva</label>
-                                                    <div class="input-group align-items-center border rounded border-dark px-3 mt-2">
-                                                        <input type="password" placeholder="*************" class="form-control border-0" name="new_password" id="new_password">
-                                                        <i class="fa fa-eye-slash"></i>
-                                                    </div>
-                                                </div>
-
-                                                <div class="text-end">
-                                                    <button type="submit" class="btn btn-success px-4">Actualizar</button>
-                                                </div>
-
-                                            </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
+                        <div class="p-4">
+                            <p class="fw-semibold warning lead">Perfil</p>
+                            <hr>
+                            <div class="profile-pictures position-relative">
+                                <img src="img/baner.jpg" class="img-fluid w-100" alt="">
+                                <img src="img/avatar.png" class="img-fluid profile-img" alt="">
+                            </div>
+
+                            <div class="forms mt-5 pt-5">
+                                <div class="row mt-3">
+                                    <div class="col-md-6 p-3">
+                                        <div class="card rounded-0 border-dark h-100">
+                                            <div class="card-body">
+                                                <p class="lead fw-bold">Información de la cuenta</p>
+                                                <hr>
+                                                <form>
+                                                    <div class="inp-group mb-3">
+                                                        <label for="fullname" class="form-label">Nombre</label>
+                                                        <input type="text" class="form-control border-dark" placeholder="Nombres" id="fullname" name="fullname" value="">
+                                                    </div>
+                                                    
+                                                    <div class="inp-group mb-3">
+                                                        <label for="email" class="form-label">Correo electrónico</label>
+                                                        <input type="email" class="form-control border-dark" placeholder="Ejemplo@email.com" id="email" name="email" value="">
+                                                    </div>
+                                                    <div class="inp-group mb-3">
+                                                        <label for="password" class="form-label">Contraseña</label>
+                                                        <div class="input-group align-items-center border rounded border-dark px-3 mt-2">
+                                                            <input type="password" placeholder="*************" class="form-control border-0" name="password" id="password">
+                                                            <i class="fa fa-eye-slash"></i>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 p-3">
+                                        <div class="card rounded-0 border-dark h-100">
+                                            <div class="card-body">
+                                                <p class="lead fw-bold">Actualizar la Información de la cuenta</p>
+                                                <hr>
+                                                <form>
+                                                    <div class="inp-group mb-3">
+                                                        <label for="fullname" class="form-label">Nombre</label>
+                                                        <input type="text" class="form-control border-dark" placeholder="Nombres" id="fullname" name="fullname" value="">
+                                                    </div>
+                                                    
+                                                    <div class="inp-group mb-3">
+                                                        <label for="email" class="form-label">Correo electrónico</label>
+                                                        <input type="email" class="form-control border-dark" placeholder="Ejemplo@email.com" id="email" name="email" value="">
+                                                    </div>
+                                                    <div class="inp-group mb-3">
+                                                        <label for="password" class="form-label">Contraseña</label>
+                                                        <div class="input-group align-items-center border rounded border-dark px-3 mt-2">
+                                                            <input type="password" placeholder="*************" class="form-control border-0" name="password" id="password">
+                                                            <i class="fa fa-eye-slash"></i>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="inp-group mb-3">
+                                                        <label for="new_password" class="form-label">Contraseña nueva</label>
+                                                        <div class="input-group align-items-center border rounded border-dark px-3 mt-2">
+                                                            <input type="password" placeholder="*************" class="form-control border-0" name="new_password" id="new_password">
+                                                            <i class="fa fa-eye-slash"></i>
+                                                        </div>
+                                                        <div class="text-end">
+                                                            <button type="submit" class="btn btn-success px-4">Actualizar</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                
             </div>
         </div>
     </div>
+    
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
     
@@ -186,6 +174,7 @@
         document.getElementById('fullname').value = fullname;
         document.getElementById('email').value = email;
     </script>
-
 </body>
+
+
 </html>

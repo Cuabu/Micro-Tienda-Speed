@@ -1,4 +1,20 @@
+<?php
+// Iniciar la sesión si no está iniciada
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Verificar si no hay una sesión activa (usuario no autenticado)
+if (!isset($_SESSION['email'])) {
+    // Redirigir al usuario a la página de inicio de sesión
+    header("Location: ../index.html");
+    exit(); // Finalizar el script después de la redirección
+}
+?>
+
+
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
     <meta charset="utf-8">
@@ -163,6 +179,12 @@
     
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script>
+        // Ejemplo de script para interactuar con la página
+        $(document).ready(function() {
+            // Tu código jQuery u otro código JavaScript aquí
+        });
+    </script>
     
     <script>
         // Obtener los parámetros de la URL

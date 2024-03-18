@@ -1,27 +1,60 @@
 <?php
-session_start(); // Iniciar la sesión
+// Iniciar la sesión
+session_start();
 
+// Verificar si se enviaron datos por POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Recibir los datos del formulario
-    $email = $_POST['login_email'];
-    $password = $_POST['login_password'];
+    $login_email = $_POST["login_email"];
+    $login_password = $_POST["login_password"];
 
-    // Aquí deberías realizar la validación del usuario en tu base de datos
-    // Por ejemplo, verificar si el usuario y contraseña son correctos
-    // Si la validación es exitosa, puedes almacenar información del usuario en la sesión
-    // Por ejemplo:
-    if ($email == 'usuario@example.com' && $password == 'contraseña') {
-        $_SESSION['usuario'] = $email; // Almacenar el email del usuario en la sesión
-        header('Location: dashboard.html'); // Redireccionar a la página principal
-        exit();
+    // Datos de conexión a la base de datos
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $database = "speed_store";
+
+    // Crear conexión
+    $conn = new mysqli($servername, $username, $password, $database);
+
+    // Verificar la conexión
+    if ($conn->connect_error) {
+        die("La conexión falló: " . $conn->connect_error);
+    }
+
+    // Consultar la base de datos para verificar el correo y la contraseña
+    $sql = "SELECT * FROM usuarios WHERE email = '$login_email' AND password = '$login_password'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        // Usuario autenticado correctamente
+        $row = $result->fetch_assoc();
+        $_SESSION['email'] = $login_email;
+        $_SESSION['fullname'] = $row['fullname'];
+
+        // Cerrar la conexión
+        $conn->close();
+
+        // Mostrar mensaje con contador regresivo antes de redirigir
+        echo "<script>
+            let count = 4;
+            setInterval(function() {
+                count--;
+                if (count <= 0) {
+                    window.location.href = 'dashboard.html'; // Redirigir al dashboard
+                } else {
+                    document.getElementById('countdown').innerText = count;
+                }
+            }, 1000);
+        </script>";
+        echo "<div>¡Inicio de sesión exitoso! Redireccionando en <span id='countdown'>5</span> segundos...</div>";
     } else {
-        // Si la validación falla, mostrar un mensaje de error
-        echo '<script>alert("Correo electrónico o contraseña incorrectos. Intenta de nuevo."); window.location.href = "tu_pagina_de_login.php";</script>';
-        exit();
+        // Credenciales incorrectas
+        echo "<script>alert('Correo electrónico o contraseña incorrectos');</script>";
+        echo "<script>window.location.href = '../index.html';</script>";
     }
 } else {
-    // Si se intenta acceder directamente a este archivo sin enviar el formulario, redirigir al formulario de inicio de sesión
-    header('Location: tu_pagina_de_login.php');
+    // Si se intenta acceder al script directamente sin enviar datos por POST, redirigir al usuario a la página de inicio de sesión
+    header("Location: ../index.html");
     exit();
 }
 ?>

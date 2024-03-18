@@ -79,39 +79,24 @@
                         </div>
 
                         <div class="p-4">
-                            <p class="fw-semibold warning lead">Perfil - Agregar Productos</p>
+                            <p class="fw-semibold warning lead">Perfil - Eliminar Productos</p>
                            
 
-                            <form class="form" action="../backend/controllers/SERVICES/agregar_productos.php" method="POST" enctype="multipart/form-data">
+                            <form class="form" action="../backend/controllers/SERVICES/eliminar_productos.php" method="POST" enctype="multipart/form-data">
     <div class="forms mt-5 pt-5">
         <div class="row mt-3">
             <div class="col-md-6 p-3">
                 <div class="card rounded-0 border-dark h-100">
                     <div class="card-body">
-                        <p class="lead fw-bold">Insertar Producto</p>
+                        <p class="lead fw-bold">Eliminar Producto</p>
                         <hr>
                         <div class="inp-group mb-3">
-                            <label for="nombre" class="form-label">Nuevo Nombre del Producto</label>
+                            <label for="nombre" class="form-label">Nombre del Producto</label>
                             <input type="text" class="form-control border-dark" placeholder="Nombres" id="nombre" name="nombre" value="">
                         </div>
                         
-                        <div class="inp-group mb-3">
-                            <label for="descripcion" class="form-label">Nueva Descripción de Producto</label>
-                            <input type="text" class="form-control border-dark" placeholder="Describa el producto" id="descripcion" name="descripcion" value="">
-                        </div>
-                        
-                        <div class="inp-group mb-3">
-                            <label for="precio" class="form-label">Nuevo Precio de Producto</label>
-                            <input type="text" class="form-control border-dark" placeholder="Precio de Producto" id="precio" name="precio" value="">
-                        </div>
-
-                        <div class="inp-group mb-3">
-                            <label for="imagen" class="form-label">Nueva Foto de Producto</label>
-                            <input type="file" class="form-control border-dark" id="imagen" name="imagen" value="">
-                        </div>
-
                         <div class="text-end">
-                            <button type="submit" class="btn btn-success px-4">Agregar</button>
+                            <button type="submit" class="btn btn-success px-4">Eliminar</button>
                         </div>
                     </div>
                 </div>

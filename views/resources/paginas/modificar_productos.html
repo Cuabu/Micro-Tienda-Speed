@@ -30,15 +30,19 @@
                             <hr class="mb-2">
                             <ul class="list-unstyled m-0 mt-3 p-0 menu show">                                
                                 <li class="my-4 menu-item">
-                                    <a href="./controllers/SERVICES/consulta_productos.php"  class="btn btn-primary btn-sm ms-auto">Consultar Productos</a>
+                                    <a href="../backend/controllers/SERVICES/consulta_productos.php"  class="btn btn-primary btn-sm ms-auto">Consultar Productos</a>
                                     <a href="../paginas/insertar_producto.html" class="btn btn-primary btn-sm ms-auto">Agregar Producto</a>
-                                    <a href="modificar_producto.php" class="btn btn-primary btn-sm ms-auto">Modificar Producto</a>
-                                    <a href="eliminar_producto.php" class="btn btn-primary btn-sm ms-auto">Eliminar Producto</a>
+                                    <a href="../paginas/modificar_productos.html" class="btn btn-primary btn-sm ms-auto">Modificar Producto</a>
+                                    <a href="../paginas/eliminar_productos.html" class="btn btn-primary btn-sm ms-auto">Eliminar Producto</a>
                                 </li>
                             </ul>                                
                         </div>
                     </div>
                 </div>
+
+                
+
+
 
                 <div class="col-lg-9 col-md-8 p-0">
                     <div class="topbar shadow border-bottom">
@@ -79,7 +83,7 @@
                         </div>
 
                         <div class="p-4">
-                            <p class="fw-semibold warning lead">Perfil - Agregar Productos</p>
+                            <p class="fw-semibold warning lead">Perfil - Modificar Productos</p>
                            
 
                             <form class="form" action="../backend/controllers/SERVICES/modificar_producto.php" method="POST" enctype="multipart/form-data">
@@ -111,7 +115,7 @@
                                                     </div>
                             
                                                     <div class="text-end">
-                                                        <button type="submit" class="btn btn-success px-4">Modificar</button>
+                                                        <button href="../backend/controllers/SERVICES/modificar_productos.php" type="submit" class="btn btn-success px-4">Modificar</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -137,9 +141,13 @@
     
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
-    
+    <!-- Script para abrir la página emergente -->
+<script>
+    function openPopup() {
+        window.open('views/resources/backend/controllers/SERVICES/consulta_productos.php', 'popup', 'width=800,height=600');
+    }
+</script>
    
 </body>
-
 
 </html>

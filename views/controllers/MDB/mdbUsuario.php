@@ -59,5 +59,3 @@
         $usuarios=$dao->leerUsuarios();
         return $usuarios;
     }     
-    
-    

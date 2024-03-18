@@ -79,75 +79,48 @@
                         </div>
 
                         <div class="p-4">
-                            <p class="fw-semibold warning lead">Perfil</p>
-                            <hr>
-                            <div class="profile-pictures position-relative">
-                                <img src="img/baner.jpg" class="img-fluid w-100" alt="">
-                                <img src="img/avatar.png" class="img-fluid profile-img" alt="">
-                            </div>
+                            <p class="fw-semibold warning lead">Perfil - Agregar Productos</p>
+                           
 
-                            <div class="forms mt-5 pt-5">
-                                <div class="row mt-3">
-                                    <div class="col-md-6 p-3">
-                                        <div class="card rounded-0 border-dark h-100">
-                                            <div class="card-body">
-                                                <p class="lead fw-bold">Información de la cuenta</p>
-                                                <hr>
-                                                <form>
+                            <form class="form" action="../backend/controllers/SERVICES/agregar_productos.php" method="POST">
+                                <div class="forms mt-5 pt-5">
+                                    <div class="row mt-3">
+                                        <div class="col-md-6 p-3">
+                                            <div class="card rounded-0 border-dark h-100">
+                                                <div class="card-body">
+                                                    <p class="lead fw-bold">Agregar Producto</p>
+                                                    <hr>
                                                     <div class="inp-group mb-3">
-                                                        <label for="fullname" class="form-label">Nombre</label>
-                                                        <input type="text" class="form-control border-dark" placeholder="Nombres" id="fullname" name="fullname" value="">
+                                                        <label for="nombre" class="form-label">Nombre</label>
+                                                        <input type="text" class="form-control border-dark" placeholder="Nombres" id="nombre" name="nombre" value="">
                                                     </div>
                                                     
                                                     <div class="inp-group mb-3">
-                                                        <label for="email" class="form-label">Correo electrónico</label>
-                                                        <input type="email" class="form-control border-dark" placeholder="Ejemplo@email.com" id="email" name="email" value="">
+                                                        <label for="descripcion" class="form-label">Descripción de Producto</label>
+                                                        <input type="text" class="form-control border-dark" placeholder="Describa el producto" id="descripcion" name="descripcion" value="">
                                                     </div>
+                            
                                                     <div class="inp-group mb-3">
-                                                        <label for="password" class="form-label">Contraseña</label>
-                                                        <div class="input-group align-items-center border rounded border-dark px-3 mt-2">
-                                                            <input type="password" placeholder="*************" class="form-control border-0" name="password" id="password">
-                                                            <i class="fa fa-eye-slash"></i>
-                                                        </div>
+                                                        <label for="precio" class="form-label">Precio de Producto</label>
+                                                        <input type="text" class="form-control border-dark" placeholder="Precio de Producto" id="precio" name="precio" value="">
                                                     </div>
-                                                </form>
+
+                                                    <div class="inp-group mb-3">
+                                                        <label for="foto" class="form-label">Foto de Producto</label>
+                                                        <input type="file" class="form-control border-dark" placeholder="subir foto" id="imagen" name="imagen" value="">
+                                                    </div>
+
+                            
+                                                    <div class="text-end">
+                                                        <button type="submit" class="btn btn-success px-4">Agregar</button>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div class="col-md-6 p-3">
-                                        <div class="card rounded-0 border-dark h-100">
-                                            <div class="card-body">
-                                                <p class="lead fw-bold">Actualizar la Información de la cuenta</p>
-                                                <hr>
-                                                <form>
-                                                    <div class="inp-group mb-3">
-                                                        <label for="fullname" class="form-label">Nombre</label>
-                                                        <input type="text" class="form-control border-dark" placeholder="Nombres" id="fullname" name="fullname" value="">
-                                                    </div>
-                                                    
-                                                    <div class="inp-group mb-3">
-                                                        <label for="email" class="form-label">Correo electrónico</label>
-                                                        <input type="email" class="form-control border-dark" placeholder="Ejemplo@email.com" id="email" name="email" value="">
-                                                    </div>
-                                                    <div class="inp-group mb-3">
-                                                        <label for="password" class="form-label">Contraseña</label>
-                                                        <div class="input-group align-items-center border rounded border-dark px-3 mt-2">
-                                                            <input type="password" placeholder="*************" class="form-control border-0" name="password" id="password">
-                                                            <i class="fa fa-eye-slash"></i>
-                                                        </div>
-                                                    </div>
-                                                    
-                                                    <div class="inp-group mb-3">
-                                                        <label for="new_password" class="form-label">Contraseña nueva</label>
-                                                        <div class="input-group align-items-center border rounded border-dark px-3 mt-2">
-                                                            <input type="password" placeholder="*************" class="form-control border-0" name="new_password" id="new_password">
-                                                            <i class="fa fa-eye-slash"></i>
-                                                        </div>
-                                                        <div class="text-end">
-                                                            <button type="submit" class="btn btn-success px-4">Actualizar</button>
-                                                        </div>
-                                                    </div>
+                                </div>
+                            </form>
+                            
                                                 </form>
                                             </div>
                                         </div>
@@ -164,16 +137,7 @@
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
     
-    <script>
-        // Obtener los parámetros de la URL
-        const params = new URLSearchParams(window.location.search);
-        // Obtener los valores de los parámetros fullname y email
-        const fullname = params.get('fullname');
-        const email = params.get('email');
-        // Mostrar la información del usuario en el HTML
-        document.getElementById('fullname').value = fullname;
-        document.getElementById('email').value = email;
-    </script>
+   
 </body>
 
 

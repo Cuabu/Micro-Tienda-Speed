@@ -16,18 +16,18 @@ if ($conn->connect_error) {
 // Verificar si se enviaron datos por POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Capturar los datos del formulario
-    $id_producto = $_POST["id_producto"];
-    $nombre = $_POST["nombre"];
-    $descripcion = $_POST["descripcion"];
-    $precio = $_POST["precio"];
+    $id_usuario = $_POST["id_usuario"];
+    $fullname = $_POST["fullname"];
+    $email = $_POST["email"];
+    $password = $_POST["password"];
 
-    // Consulta para actualizar el producto en la tabla
-    $sql = "UPDATE productos SET nombre='$nombre', descripcion='$descripcion', precio=$precio WHERE id_producto=$id_producto";
+    // Consulta para actualizar el usuario en la tabla
+    $sql = "UPDATE usuarios SET fullname='$fullname', email='$email', password='$password' WHERE ID_usuario='$id_usuario'";
 
     if ($conn->query($sql) === TRUE) {
-        echo "Producto modificado correctamente.";
+        echo "Usuario modificado correctamente.";
     } else {
-        echo "Error al modificar el producto: " . $conn->error;
+        echo "Error al modificar el usuario: " . $conn->error;
     }
 } else {
     echo "No se recibieron datos del formulario.";

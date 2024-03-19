@@ -1,12 +1,13 @@
 <?php
 session_start();
+
 // Verificar si se recibieron datos del formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["fullname"], $_POST["email"], $_POST["password"])) {
     // Establecer la conexión a la base de datos
     $servername = "localhost";
-    $username = "root"; // Reemplaza "tu_usuario" por tu nombre de usuario de MySQL
-    $password = ""; // Reemplaza "tu_contraseña" por tu contraseña de MySQL
-    $dbname = "speed_store"; // Reemplaza "tu_base_de_datos" por el nombre de tu base de datos
+    $username = "root"; // Reemplaza "root" por tu nombre de usuario de MySQL
+    $password = ""; // Reemplaza "" por tu contraseña de MySQL
+    $dbname = "speed_store"; // Reemplaza "speed_store" por el nombre de tu base de datos
     $conn = new mysqli($servername, $username, $password, $dbname);
 
     if ($conn->connect_error) {
@@ -19,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["fullname"], $_POST["em
     $password = clean_input($_POST["password"]);
 
     // Verificar si el usuario ya existe en la base de datos
-    $sql = "SELECT * FROM usuarios WHERE email=?";
+    $sql = "SELECT * FROM usuario WHERE email=?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $email);
     $stmt->execute();
@@ -30,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["fullname"], $_POST["em
         echo "<p>El usuario ya está registrado.</p>";
     } else {
         // El usuario no existe, insertar datos en la base de datos
-        $sql = "INSERT INTO usuarios (fullname, email, password) VALUES (?, ?, ?)";
+        $sql = "INSERT INTO usuario (nombre, email, password) VALUES (?, ?, ?)";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("sss", $fullname, $email, $password);
 

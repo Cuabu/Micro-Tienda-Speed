@@ -1,0 +1,8 @@
+/* Estilos para el mensaje de éxito */
+.success-message {
+    background-color: #28a745; /* Verde */
+    color: #fff; /* Texto blanco */
+    padding: 20px;
+    text-align: center;
+    font-size: 18px;
+}

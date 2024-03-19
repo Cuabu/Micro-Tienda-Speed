@@ -3,7 +3,7 @@
 session_start();
 
 // Verificar si se enviaron datos por POST
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login_email"], $_POST["login_password"])) {
     $login_email = $_POST["login_email"];
     $login_password = $_POST["login_password"];
 
@@ -21,22 +21,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("La conexión falló: " . $conn->connect_error);
     }
 
-    // Consultar la base de datos para verificar el correo y la contraseña
-    $sql = "SELECT * FROM usuarios WHERE email = '$login_email' AND password = '$login_password'";
-    $result = $conn->query($sql);
+    // Preparar la consulta SQL para evitar la inyección de SQL
+    $sql = "SELECT * FROM usuario WHERE email = ? AND password = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ss", $login_email, $login_password);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
         // Usuario autenticado correctamente
         $row = $result->fetch_assoc();
-        $_SESSION['email'] = $login_email;
-        $_SESSION['fullname'] = $row['fullname'];
+        $_SESSION['email'] = $row['email'];
+        $_SESSION['fullname'] = $row['nombre'];
 
         // Cerrar la conexión
+        $stmt->close();
         $conn->close();
 
-        // Mostrar mensaje con contador regresivo antes de redirigir
+        // Mostrar mensaje de inicio de sesión exitoso con estilo Bootstrap
+        echo "<div class='alert alert-success' role='alert'>
+                ¡Inicio de sesión exitoso! Redireccionando en <span id='countdown'>5</span> segundos...
+            </div>";
+        
+        // Redireccionar al dashboard después de un tiempo determinado
         echo "<script>
-            let count = 4;
+            let count = 5;
             setInterval(function() {
                 count--;
                 if (count <= 0) {
@@ -46,7 +55,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 }
             }, 1000);
         </script>";
-        echo "<div>¡Inicio de sesión exitoso! Redireccionando en <span id='countdown'>5</span> segundos...</div>";
     } else {
         // Credenciales incorrectas
         echo "<script>alert('Correo electrónico o contraseña incorrectos');</script>";
@@ -57,4 +65,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header("Location: ../index.html");
     exit();
 }
+
+// Mostrar mensaje de inicio de sesión exitoso con estilo Bootstrap
+echo "<div class='alert alert-success' role='alert'>
+        ¡Inicio de sesión exitoso! Redireccionando en <span id='countdown'>5</span> segundos...
+    </div>";
+    
+// Redireccionar al usuario a la página de mensaje de éxito después de mostrar el mensaje
+header("Location: ./mensaje_confirmacion.html");
+
+
+
 ?>

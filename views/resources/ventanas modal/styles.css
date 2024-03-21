@@ -1,0 +1,46 @@
+ /* Estilo personalizado para ajustar el ancho de las ventanas modales */
+ .modal-dialog {
+    max-width: 400px; /* Ancho máximo de las ventanas modales */
+}
+
+.btn-primary {
+    color: white;
+    background-color: blueviolet;
+    border-color: blue;
+}
+
+/* Estilos para los botones */
+.btn-container {
+    margin-top: 50px;
+}
+
+.btn-container .row {
+    justify-content: center;
+}
+
+.btn-container .col-sm-3 {
+    margin-bottom: 20px;
+}
+
+/* Estilos para las ventanas modales */
+.modal-header {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.modal-title {
+    font-weight: bold;
+}
+
+/* Estilos para los formularios dentro de las ventanas modales */
+.modal-body form {
+    margin-bottom: 20px;
+}
+
+.modal-body form .form-group {
+    margin-bottom: 15px;
+}
+
+.modal-footer button {
+    margin-right: 10px;
+}

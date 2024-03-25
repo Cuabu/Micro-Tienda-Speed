@@ -63,7 +63,7 @@
 
                         <div class="col-sm-3">
                             <button type="button" class="btn btn-secondary" data-toggle="modal"
-                                data-target="#modalEliminar">
+                                data-target="#modalRegistro">
                                 Registrar Tienda
                             </button>
                         </div>
@@ -137,10 +137,7 @@
                 <div class="modal-body">
                     <!-- Formulario de inserción -->
                     <form id="formularioInsercion" action="../php/insertar.php" method="post">
-                        <div class="form-group">
-                            <label for="codigo">Código:</label>
-                            <input type="text" class="form-control" id="codigo" name="codigo" required>
-                        </div>
+
                         <div class="form-group">
                             <label for="nombre">Nombre:</label>
                             <input type="text" class="form-control" id="nombre" name="nombre" required>
@@ -252,6 +249,42 @@
         </div>
     </div>
 
+    <!-- Ventana modal para el formulario de inserción -->
+    <div class="modal fade" id="modalRegistro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Registrar Tienda</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Formulario de inserción Tienda -->
+                    <form id="formularioRegistro" action="../php/registro_tienda.php" method="post">
+                        <div class="form-group">
+                            <label for="codigo">Nombre Tieda</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nombre">Ubicacion Tienda:</label>
+                            <input type="text" class="form-control" id="ubicacion" name="ubicacion" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="descripcion">Telefono Tienda:</label>
+                            <input type="text" class="form-control" id="telefono" name="telefono" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Insertar</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <!-- Scripts -->

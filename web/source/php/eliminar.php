@@ -1,38 +1,30 @@
 <?php
-// Verificar si se recibió el parámetro ID del producto a eliminar
-if(isset($_POST['id_producto']) && !empty($_POST['id_producto'])) {
-    // Obtener el ID del producto desde el parámetro POST
-    $id_producto = $_POST['id_producto'];
+// Conexión a la base de datos
+$host = "localhost";
+$username = "root"; // Cambiar al nombre de usuario de tu base de datos
+$password = ""; // Cambiar a la contraseña de tu base de datos
+$dbname = "speed_store"; // Cambiar al nombre de tu base de datos
 
-    // Datos de conexión a la base de datos
-    $servername = "localhost"; // Nombre del servidor MySQL
-    $username = "root"; // Nombre de usuario de la base de datos
-    $password = ""; // Contraseña de la base de datos
-    $dbname = "gitactividad"; // Nombre de la base de datos
+// Crear conexión a la base de datos
+$conn = new mysqli($host, $username, $password, $dbname);
 
-    // Crear conexión
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    // Verificar conexión
-    if ($conn->connect_error) {
-        die("Conexión fallida: " . $conn->connect_error);
-    }
-
-    // Consulta SQL para eliminar el producto
-    $sql = "DELETE FROM productos WHERE codigo = $id_producto";
-
-    // Imprimir el query para depuración
-    echo "Query SQL: " . $sql . "<br>";
-
-    if ($conn->query($sql) === TRUE) {
-        echo "El producto ha sido eliminado exitosamente.";
-    } else {
-        echo "Error al eliminar el producto: " . $conn->error;
-    }
-
-    // Cerrar conexión
-    $conn->close();
-} else {
-    echo "No se especificó el ID del producto a eliminar.";
+// Verificar la conexión
+if ($conn->connect_error) {
+    die("Error al conectar: " . $conn->connect_error);
 }
-?>
+
+// Obtener los datos del formulario
+$id_producto = $_POST['id_producto']; // Producto que viene desde el formulario HTML
+
+// Consulta SQL para eliminar el producto
+$sql = "DELETE FROM producto WHERE id_producto = $id_producto";
+
+// Ejecutar la consulta
+if ($conn->query($sql) === TRUE) {
+    echo "Producto eliminado correctamente.";
+} else {
+    echo "Error al eliminar el producto: " . $conn->error;
+}
+
+// Cerrar la conexión
+$conn->close();
